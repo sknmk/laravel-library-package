@@ -1,0 +1,23 @@
+{
+    "name": "sknmk/library-operations",
+    "description": "Challenge",
+    "authors": [
+        {
+            "name": "Serkan Mert Kaptan",
+            "email": "serkanmertkaptan@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "SerkanMertKaptan\\LibraryOperations\\" : "src/"
+        }
+    },
+    "extra": {
+        "laravel" : {
+            "libraryOperations": [
+                "SerkanMertKaptan\\LibraryOperations\\User"
+            ]
+        }
+    }
+}
