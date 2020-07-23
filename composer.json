@@ -15,8 +15,8 @@
     },
     "extra": {
         "laravel" : {
-            "libraryOperations": [
-                "SerkanMertKaptan\\LibraryOperations\\User"
+            "providers": [
+                "SerkanMertKaptan\\LibraryOperations\\Providers\\BookServiceProvider"
             ]
         }
     }
