@@ -1,23 +1,35 @@
 <?php
 
-namespace SerkanMertKaptan\LibraryOperations;
+namespace Sknmk\LibraryOperations;
 
 use Illuminate\Support\ServiceProvider;
+use Sknmk\LibraryOperations\Http\Controller\BookController;
+use Sknmk\LibraryOperations\Http\Controller\ReaderController;
+use Sknmk\LibraryOperations\Http\Controller\BookReaderController;
 
+/**
+ * Class LibraryServiceProvider
+ * @package Sknmk\LibraryOperations
+ */
 class LibraryServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        $this->loadRoutesFrom(__DIR__.'/routes/router.php');
-        $this->publishes([
-            __DIR__ . '/../config/options.php' => config_path('options.php')
-        ]);
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+        $this->loadRoutesFrom(__DIR__ . '/Routes/Router.php');
+        $this->loadViewsFrom(__DIR__ . '/../view', 'library');
     }
 
     public function register()
     {
-        $this->app->singleton(Library::class, function () {
-            return new Library();
+        $this->app->singleton(BookController::class, function () {
+            return new BookController();
+        });
+        $this->app->singleton(ReaderController::class, function () {
+            return new ReaderController();
+        });
+        $this->app->singleton(BookReaderController::class, function () {
+            return new BookReaderController();
         });
     }
 }

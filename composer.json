@@ -1,5 +1,5 @@
 {
-    "name": "sknmk/library-operations",
+    "name": "sknmk/returner_peakman",
     "description": "Challenge",
     "authors": [
         {
@@ -10,13 +10,13 @@
     "require": {},
     "autoload": {
         "psr-4": {
-            "SerkanMertKaptan\\LibraryOperations\\" : "src/"
+            "Sknmk\\LibraryOperations\\" : "src/"
         }
     },
     "extra": {
         "laravel" : {
             "providers": [
-                "SerkanMertKaptan\\LibraryOperations\\Providers\\BookServiceProvider"
+                "Sknmk\\LibraryOperations\\LibraryServiceProvider"
             ]
         }
     }
