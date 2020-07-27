@@ -65,9 +65,7 @@
                 data: {id, return_date},
                 success: function (data) {
                     submitButton.html("Successfull.").prop("disabled", false).removeClass("disabled");
-                    setTimeout(() => {
-                        location.reload();
-                    }, 1000);
+                    location.reload();
                     $("input, select, textarea").val('');
                 },
                 error: function (response) {
@@ -102,7 +100,8 @@
                         if (value.book_reader.length > 0) {
                             books[value.id] = [];
                             $.each(value.book_reader, function (subkey, subvalue) {
-                                if (subvalue.return_date.length < 1 ) {
+                                console.log(subvalue);
+                                if (subvalue.return_date === null) {
                                     subvalue.book.book_reader_id = subvalue.id
                                     books[value.id].push(subvalue.book);
                                 }

@@ -64,9 +64,7 @@
                 data: formData,
                 success: function (data) {
                     submitButton.html("Successfull.").prop("disabled", false).removeClass("disabled");
-                    setTimeout(() => {
-                        location.reload();
-                    }, 1000);
+                    location.reload();
                     $("input, select, textarea").val('');
                 },
                 error: function (response) {
@@ -127,7 +125,7 @@
                     $.each(data, function (key, value) {
                         let status = 0;
                         $.each(value.book_reader, function (subkey, subvalue) {
-                            if (subvalue.return_date.length < 1) {
+                            if (subvalue.return_date && subvalue.return_date.length < 1) {
                                 status = 1;
                             }
                         });
