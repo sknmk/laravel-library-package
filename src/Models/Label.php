@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Label extends Model
 {
     protected $guarded = [];
-    protected $fillable = ['name', 'value'];
+    protected $fillable = ['name', 'bit_value'];
     protected $table = 'label';
     public $timestamps = true;
 

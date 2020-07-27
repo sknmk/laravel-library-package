@@ -50,6 +50,10 @@ class BookController extends Controller
         return view('library::detailBook', ['labels' => Label::all()]);
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection
+     */
     public function list(Request $request)
     {
         $list = Book::with('author');
@@ -72,12 +76,18 @@ class BookController extends Controller
         return $list->get();
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection
+     */
     public function listWithReader()
     {
         return Book::with('author', 'book_reader')
             ->get();
     }
 
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function listView()
     {
         return view('library::listBook', ["authors" => Author::all(), "labels" => Label::all()]);

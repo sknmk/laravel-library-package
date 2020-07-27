@@ -7,13 +7,24 @@ use App\Http\Controllers\Controller,
     Illuminate\Http\Request,
     Sknmk\LibraryOperations\Models\BookReader;
 
+/**
+ * Class BookReaderController
+ * @package Sknmk\LibraryOperations\Http\Controller
+ */
 class BookReaderController extends Controller
 {
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function form()
     {
         return view('library::createBook');
     }
 
+    /**
+     * @param Request $request
+     * @return mixed
+     */
     public function assign(Request $request)
     {
         $request->validate([
@@ -36,11 +47,18 @@ class BookReaderController extends Controller
         return BookReader::create($input);
     }
 
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function assignView()
     {
         return view('library::assignBook');
     }
 
+    /**
+     * @param Request $request
+     * @return mixed
+     */
     public function return(Request $request)
     {
         $request->validate([
@@ -54,6 +72,9 @@ class BookReaderController extends Controller
         return BookReader::where('id', $input['id'])->update(['return_date' => $input['return_date'], 'status' => $input['status']]);
     }
 
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function returnView()
     {
         return view('library::returnBook');

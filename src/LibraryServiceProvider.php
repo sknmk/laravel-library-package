@@ -15,6 +15,9 @@ class LibraryServiceProvider extends ServiceProvider
 {
     public function boot()
     {
+        if ($this->app->runningInConsole()) {
+            $this->publishResources();
+        }
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
         $this->loadRoutesFrom(__DIR__ . '/Routes/Router.php');
         $this->loadViewsFrom(__DIR__ . '/../view', 'library');
@@ -31,5 +34,12 @@ class LibraryServiceProvider extends ServiceProvider
         $this->app->singleton(BookReaderController::class, function () {
             return new BookReaderController();
         });
+    }
+
+    protected function publishResources()
+    {
+        $this->publishes([
+            __DIR__.'/../database/seeds/' => database_path('seeds')
+        ], 'seeds');
     }
 }

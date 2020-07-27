@@ -7,7 +7,9 @@
             "email": "serkanmertkaptan@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "fzaninotto/faker": "^1.9"
+    },
     "autoload": {
         "psr-4": {
             "Sknmk\\LibraryOperations\\" : "src/"

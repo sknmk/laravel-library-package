@@ -38,11 +38,17 @@ class ReaderController extends Controller
         return Reader::create($input);
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Collection|Reader[]
+     */
     public function list()
     {
         return Reader::all();
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection
+     */
     public function listWithReader()
     {
         return Reader::with('book_reader.book')
