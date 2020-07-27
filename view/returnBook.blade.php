@@ -100,7 +100,6 @@
                         if (value.book_reader.length > 0) {
                             books[value.id] = [];
                             $.each(value.book_reader, function (subkey, subvalue) {
-                                console.log(subvalue);
                                 if (subvalue.return_date === null) {
                                     subvalue.book.book_reader_id = subvalue.id
                                     books[value.id].push(subvalue.book);
